@@ -1,0 +1,16 @@
+Ip adress of the sensor: 192.168.100.41 
+Ip adress of the computer (ethernet) : 192.168.100.40 subnetmask 255.255.255.0 
+Osc from sensor to computer: 12000 (lissen on this port) 
+From computer to sensor: 11000 (transmit to this port) 
+
+message structure from comptuer to sensor:
+/release (int) (value when release is triggerd lower is more sensitive (should always be a lower value then the touch) 5 seems good
+/touch (int) (value when to trigger lower value is more sensitive)   (20 seems good) make it higher if it fals triggers 
+/reset (bool) or bool as (int) (resets the whole sensor and calibrates the touch surfaces) 
+
+message structure from sensor: 
+Sensor1/touchpin every 10 seconds this value increments to see if it is still active
+Sensor1/Variables1 (release value thats stored) (int) 
+Sensor1/Variables2 (touch value thats stored) (int) 
+Sensor1/touchpin +(nummber)  (bool) 
+
